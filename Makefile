@@ -11,10 +11,8 @@ For VLSI
 Key Components
 A Makefile consists of rules with this structure:
 
-Makefile
 target: dependencies
 	TAB command
-
 -target: The file to create (e.g., app, main.o)
 -dependencies: Files needed to build the target
 -commands: Shell commands to execute (must start with a TAB character, not spaces)
@@ -22,14 +20,14 @@ target: dependencies
 
 Makefile Cheatsheet
 Feature	                    Syntax	                                        Example
-Variable	                  VAR = value	                                    CC = gcc
-Use variable	              $(VAR)	                                        $(CC)
-Target with deps	          target: dep1 dep2	                              app: main.o foo.o
+Variable	                VAR = value	                                    CC = gcc
+Use variable	            $(VAR)	                                        $(CC)
+Target with deps	        target: dep1 dep2	                            app: main.o foo.o
 Automatic variables	        $@ (target), $< (first dep), $^ (all deps)	    gcc -o $@ $^
-Pattern rule	              %.o: %.c	                                      Compiles all .c to .o
-Phony target	              .PHONY: target	                                .PHONY: clean
-Comments	                  # comment	                                      # Build the app
-Run all jobs parallel	      make -j4	                                      Speeds up builds
+Pattern rule	            %.o: %.c	                                    Compiles all .c to .o
+Phony target	            .PHONY: target	                                .PHONY: clean
+Comments	                # comment	                                    # Build the app
+Run all jobs parallel	    make -j4	                                    Speeds up builds
 Dry run	                    make -n	                                        Just print the command without run
 
 Key Rules to Remember
