@@ -1,0 +1,36 @@
+https://www.scribd.com/document/20756315/C-Shell-Scripting-Cheatsheet
+
+1.Basic variable assignment
+# Local variable (only in current shell)
+set var = "local"
+# Export to subshells (environment variable)
+setenv MY_VAR "value"
+
+2.Switch statement
+//switch ($choice)
+//    case "1":
+//        echo "Option 1"
+//        breaksw
+//    case "2":
+//        echo "Option 2"
+//        breaksw
+//    case "start":
+//    case "begin":
+//        echo "Starting..."
+//        breaksw
+//    default:
+//        echo "Unknown option"
+//        breaksw
+//endsw
+
+3.Loops
+a.Foreach with item/range/over array
+b.Foreach over files/with list expansion
+c.While loop
+d.Repeat loop  #repeat 5 echo "Hello" 
+
+4.Basic function (Alias)
+
+5.Subroutine pattern (Goto statement)
+
+6.Array indexing
