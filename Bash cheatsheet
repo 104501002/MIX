@@ -1,0 +1,75 @@
+1.Numeric (for numbers)
+-eq  equal
+-ne  not equal
+-gt  greater than
+-ge  greater than or equal
+-lt  less than
+-le  less than or equal
+----------------------------------------------------------
+//if [ $score -ge 85 ]; then
+//    echo "Score is >= 85"            # TRUE (85 >= 85)
+//fi
+----------------------------------------------------------
+
+2.String (for text)
+=   equal
+!=  not equal
+-z  empty string
+-n  non-empty string
+----------------------------------------------------------
+//if [ "$name" = "Alice" ]; then
+//    echo "Name is Alice"             # TRUE
+//fi
+----------------------------------------------------------
+
+3.Files
+-f  file exists
+-d  directory exists
+-e  exists (file or dir)
+-s  has content
+-r  readable
+-w  writable
+-x  executable
+----------------------------------------------------------
+//if [ -f "~/.bashrc" ]; then
+//    echo ".bashrc exists"            # TRUE (usually)
+//fi 
+----------------------------------------------------------
+
+4.Case statement
+//case "$choice" in
+//    1)
+//        echo "Option 1"
+//        ;;
+//    2)
+//        echo "Option 2"
+//        ;;
+//    start|begin)
+//        echo "Starting..."
+//       ;;
+//    *)
+//        echo "Unknown option"
+//        ;;
+//esac
+
+5.Loops
+a.for loop with items
+b.for loop c-style
+c.while loop
+d.until loop
+
+6.Function
+----------------------------------------------------------
+//sum() {
+//    local total=0
+//    for num in "$@"; do
+//        total=$((total + num))
+//    done
+//    echo $total
+//}
+//result=$(sum 1 2 3 4 5)
+//echo "Sum: $result"      # Output: Sum: 15
+----------------------------------------------------------
+
+7.Arrays/Associative Arrays (Hash/Dictionary)
+
