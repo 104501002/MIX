@@ -1,4 +1,80 @@
-# Content before line 79 unchanged...
+A shell is the command interpreter that sits between you and your operating system's kernel. 
+It's the bridge that translates your commands into actions the OS can execute.
+
+
+The Shell Command Execution Cycle
+┌──────────────┐
+│   DISPLAY    │
+│   PROMPT ($) │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│  READ INPUT  │ (user types: ls -la)
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│    PARSE     │ (tokenize into: ls, -la)
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│   LOOKUP     │ (is it built-in or external?)
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│   EXECUTE    │ (run the command)
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│   DISPLAY    │ (show output)
+└──────────────┘
+Ex1: echo "Hello World"
+Prompt: Shell displays $
+User types: echo "Hello World"
+Parser: Breaks into tokens: echo, "Hello World"
+Lookup: Finds echo is a built-in command
+Execute: Runs echo directly in the shell
+Output: Displays Hello World
+
+Ex2: ls -la /tmp
+Prompt: Shell displays $
+User types: ls -la /tmp
+Parser: Breaks into: ls, -la, /tmp
+Lookup: Finds ls is external program (searches PATH)
+Execute:
+Creates new process
+Loads /bin/ls into memory
+Passes arguments: -la /tmp
+Output: Lists files/directories
+
+
+Command-Line Shells (CLI)
+
+| Shell | Origin | Features | Usage |
+|-------|--------|----------|-------|
+| sh (Bourne Shell) | 1979 | Basic, POSIX standard | System scripts, portability |
+| bash (Bourne Again Shell) | 1989 | Extended sh, most popular | Default on Linux/macOS |
+| csh (C Shell) | 1978 | C-like syntax | Some BSD systems |
+| zsh (Z Shell) | 1990 | bash + csh + improvements | macOS Catalina default, power users |
+| ksh (Korn Shell) | 1983 | Between sh and csh | Some Unix systems |
+| fish (Friendly Interactive Shell) | 2005 | User-friendly, modern | Interactive use |
+| PowerShell | 2006 | Object-oriented, Windows-focused | Windows systems |
+
+
+Graphical Shells (GUI)
+Windows Explorer (Windows)
+Finder (macOS)
+Nautilus/Dolphin (Linux desktop environments)
+
+
+Scripting
+A shebang is the first line in a script file:
+#!/bin/{env}
+
 
 | Purpose          | Shebang                   | Extension | Usage                             |
 |------------------|---------------------------|-----------|-----------------------------------|
