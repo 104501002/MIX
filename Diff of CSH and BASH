@@ -1,0 +1,69 @@
+1️⃣ Set environment variable (VERY important 🔥)
+🟦 Bash      export PATH=/tools/bin:$PATH
+🟨 C Shell   setenv PATH /tools/bin:$PATH
+
+
+2️⃣ Define a variable
+🟦 Bash
+name="Alice"
+echo $name
+🟨 C Shell
+set name = "Alice"
+echo $name
+
+3️⃣ If condition
+🟦 Bash
+if [ $x -gt 10 ]; then
+    echo "big"
+fi
+🟨 C Shell
+if ( $x > 10 ) then
+    echo "big"
+endif
+
+4️⃣ Loop (for)
+🟦 Bash
+for i in 1 2 3
+do
+    echo $i
+done
+🟨 C Shell
+foreach i (1 2 3)
+    echo $i
+end
+
+5️⃣ Read user input
+🟦 Bash
+read name
+echo $name
+🟨 C Shell
+set name = $<
+echo $name
+
+6️⃣ Run a script
+🟦 Bash
+bash script.sh
+source script.sh
+🟨 C Shell
+csh script.csh
+source script.csh
+
+7️⃣ run simulation
+🟦 Bash
+#!/bin/bash
+vcs design.v tb.v
+./simv
+🟨 C Shell
+#!/bin/csh
+vcs design.v tb.v
+./simv
+
+👉 Uses simulator: VCS
+
+⚠️ Key Differences (important)
+Feature	         Bash	        C Shell
+Env variable	   export	      setenv
+Variable	       name=value	  set name = value
+Loop	           for	        foreach
+If syntax	       [ ]	        ( )
+Block end	       fi	          endif
