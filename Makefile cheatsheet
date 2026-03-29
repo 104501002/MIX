@@ -1,0 +1,27 @@
+# Comprehensive verification Makefile
+SIMULATOR = vcs
+RTL_FILES = rtl/*.v
+TB_FILES = tb/*.sv
+COMPILE_FLAGS = -sverilog +define+SIM -timescale=1ns/1ps
+SIM_FLAGS = -gui +UVM_TESTNAME=$(TEST)
+
+.PHONY: compile simulate clean coverage
+
+compile:
+	$(SIMULATOR) $(COMPILE_FLAGS) $(RTL_FILES) $(TB_FILES) -o simv
+
+simulate: compile
+	./simv $(SIM_FLAGS)
+
+# Run specific test
+test_counter:
+	$(SIMULATOR) $(COMPILE_FLAGS) $(RTL_FILES) $(TB_FILES) -o simv
+	./simv +UVM_TESTNAME=counter_test
+
+# Coverage
+coverage: compile
+	./simv $(SIM_FLAGS) -cm line+cond+fsm+branch
+	urg -dir simv.cm -report coverage_report
+
+clean:
+	rm -rf simv* *.cm *.db DVEfiles coverage_report
